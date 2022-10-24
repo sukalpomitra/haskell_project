@@ -1,9 +1,14 @@
 module Main where
 
-import Validation
+import Utility
+import Database
+import Action
 
 main :: IO ()
 main = do
+    randomNumber <- getRandomNumber
+    wordleWordOfTheDay <- lookUpWordOfTheDay randomNumber
+    print wordleWordOfTheDay
     putStrLn "Wordle: Guess the 5 letter word for today"
     guessedWord <- getLine
     if not (checkSize guessedWord)
