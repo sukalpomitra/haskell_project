@@ -7,11 +7,11 @@ import Action
 main :: IO ()
 main = do
     randomNumber <- getRandomNumber
-    wordleWordOfTheDay <- lookUpWordOfTheDay randomNumber
-    print wordleWordOfTheDay
+    let wordleWordOfTheDay = lookUpWordOfTheDay randomNumber
     putStrLn "Wordle: Guess the 5 letter word for today"
     guessedWord <- getLine
     if not (checkSize guessedWord)
         then putStrLn "Wordle: Please enter a 5 letter word" >> main
-    else 
+    else do
+        validateGuess wordleWordOfTheDay guessedWord
         putStrLn guessedWord
