@@ -13,5 +13,6 @@ main = do
     if not (checkSize guessedWord)
         then putStrLn "Wordle: Please enter a 5 letter word" >> main
     else do
-        validateGuess wordleWordOfTheDay guessedWord
-        putStrLn guessedWord
+        case wordleWordOfTheDay of
+            Nothing -> putStrLn ""
+            Just s  -> validateGuess s guessedWord >> putStrLn
