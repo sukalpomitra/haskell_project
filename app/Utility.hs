@@ -14,4 +14,4 @@ lookUpWordOfTheDay i = Map.lookup i wordOfTheDayDb
 validateGuess :: String -> String -> String
 validateGuess [] _ = ""
 validateGuess _ [] = ""
-validateGuess (x:xs) (a:as) = if x == a then "X" else a : validateGuess xs as
+validateGuess (x:xs) (a:as) = if x /= a then "X" else a : validateGuess xs as
