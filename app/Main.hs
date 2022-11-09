@@ -3,6 +3,7 @@ module Main where
 import Utility
 import Database
 import Action
+import Prelude (getLine)
 
 main :: IO ()
 main = do
@@ -14,5 +15,6 @@ main = do
         then putStrLn "Wordle: Please enter a 5 letter word" >> main
     else do
         case wordleWordOfTheDay of
-            Nothing -> putStrLn ""
+            Nothing -> putStrLn "" >> main
             Just s  -> validateGuess s guessedWord >> putStrLn
+    getLine
