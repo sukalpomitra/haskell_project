@@ -3,7 +3,7 @@ module Main where
 import Utility
 import Database
 import Action
-import Prelude (getLine)
+import Prelude (getLine, putStrLn)
 
 main :: IO ()
 main = do
@@ -17,4 +17,4 @@ main = do
         case wordleWordOfTheDay of
             Nothing -> putStrLn "" >> main
             Just s  -> validateGuess s guessedWord >> putStrLn
-    getLine
+    putStrLn ""
